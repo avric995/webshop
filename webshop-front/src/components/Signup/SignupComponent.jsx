@@ -1,8 +1,11 @@
 import { useState } from 'react'
+// import { useMutation } from '@tanstack/react-query'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { RxAvatar } from 'react-icons/rx'
 import styles from '../../styles/style'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { server } from '../../server'
 
 const SignupComponent = () => {
   const [email, setEmail] = useState('')
@@ -12,13 +15,47 @@ const SignupComponent = () => {
   const [visible, setVisible] = useState(false)
   const [avatar, setAvatar] = useState(null)
 
+  // approach with using react-query
+  // const uploadFormData = async (formData) => {
+  //   const response = await axios.post(`${server}/user/create-user`, formData, {
+  //     headers: { 'Content-Type': 'multipart/form-data' },
+  //   })
+
+  //   return response.data
+  // }
+
+  // const { mutateAsync } = useMutation(uploadFormData)
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('fff')
+
+    const newForm = new FormData()
+    newForm.append('file', avatar)
+    newForm.append('firstName', firstName)
+    newForm.append('lastName', lastName)
+    newForm.append('email', email)
+    newForm.append('password', password)
+
+    axios
+      .post(`${server}/user/create-user`, newForm, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      })
+      .then((res) => {
+        alert(res.message)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+    // try {
+    //   await mutateAsync(newForm)
+    // } catch (error) {
+    //   console.log(error)
+    // }
   }
   const handleFileInputChange = (e) => {
     const file = e.target.files[0]
-    console.log(file)
+
     setAvatar(file)
   }
   return (
@@ -30,7 +67,7 @@ const SignupComponent = () => {
       </div>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label
                 htmlFor="firstName"
