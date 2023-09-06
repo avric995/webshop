@@ -41,7 +41,7 @@ const SignupComponent = () => {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
       .then((res) => {
-        alert(res.message)
+        alert(res.data.message)
       })
       .catch((err) => {
         console.log(err)
