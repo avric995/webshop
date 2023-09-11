@@ -6,6 +6,7 @@ import styles from '../../styles/style'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { server } from '../../server'
+import { toast } from 'react-toastify'
 
 const SignupComponent = () => {
   const [email, setEmail] = useState('')
@@ -41,10 +42,33 @@ const SignupComponent = () => {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
       .then((res) => {
-        alert(res.data.message)
+        toast.success(res.data.message, {
+          position: 'top-left',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        })
+        setFirstName('')
+        setLastName('')
+        setEmail('')
+        setPassword('')
+        setAvatar(null)
       })
       .catch((err) => {
-        console.log(err)
+        toast.error(err.response.data.message, {
+          position: 'top-left',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        })
       })
 
     // try {
