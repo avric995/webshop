@@ -229,7 +229,7 @@ export const categoriesData = [
     title: 'Gifts',
     subTitle: '',
     image_Url:
-      'https://securecdn.pymnts.com/wp-content/uploads/2014/11/Gifts-Photo-700x489.jpg',
+      'https://e7.pngegg.com/pngimages/295/410/png-clipart-christmas-gift-christmas-gift-gift-miscellaneous-ribbon-thumbnail.png',
   },
   {
     id: 7,
@@ -320,7 +320,7 @@ export const productData = [
     rating: 5,
     total_sell: 80,
     stock: 10,
-    category: 'Mobile & Tablets',
+    // category: 'Mobile & Tablets',
   },
   {
     id: 1,
@@ -351,7 +351,7 @@ export const productData = [
     rating: 4,
     total_sell: 75,
     stock: 10,
-    category: 'Computers & Laptop',
+    // category: 'Computers & Laptop',
   },
   {
     id: 4,
@@ -386,7 +386,7 @@ export const productData = [
   },
   {
     id: 5,
-    category: 'Shoes',
+    // category: 'Shoes',
     name: 'New Trend shoes for gents with all sizes',
     description:
       "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
