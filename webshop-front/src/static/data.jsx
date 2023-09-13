@@ -198,7 +198,7 @@ export const categoriesData = [
   },
   {
     id: 2,
-    title: 'cosmetics and body care',
+    title: 'Cosmetics and body care',
     subTitle: '',
     image_Url:
       'https://indian-retailer.s3.ap-south-1.amazonaws.com/s3fs-public/2021-07/kosme1.png',
@@ -229,7 +229,7 @@ export const categoriesData = [
     title: 'Gifts',
     subTitle: '',
     image_Url:
-      'https://e7.pngegg.com/pngimages/295/410/png-clipart-christmas-gift-christmas-gift-gift-miscellaneous-ribbon-thumbnail.png',
+      'https://img.freepik.com/premium-photo/gift-boxes-white-background_1205-2814.jpg',
   },
   {
     id: 7,

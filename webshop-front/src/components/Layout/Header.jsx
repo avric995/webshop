@@ -109,7 +109,7 @@ const Header = ({ activeHeading }) => {
           className={`${styles.section} relative ${styles.normalFlex} justify-between`}
         >
           {/* categories */}
-          <div>
+          <div onClick={() => setDropDown(!dropDown)}>
             <div className="relative h-[60px] mt-[10px] w-[270px] hidden 1000px:block">
               <BiMenuAltLeft size={30} className="absolute top-3 left-2" />
               <button
@@ -120,7 +120,6 @@ const Header = ({ activeHeading }) => {
               <IoIosArrowDown
                 size={20}
                 className="absolute right-2 top-4 cursor-pointer"
-                onClick={() => setDropDown(!dropDown)}
               />
               {dropDown ? (
                 <DropDown
