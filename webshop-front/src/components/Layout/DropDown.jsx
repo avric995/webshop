@@ -14,7 +14,7 @@ const DropDown = ({ categoriesData, setDropDown }) => {
         categoriesData.map((i, index) => {
           return (
             <div
-              className={`${styles.normalFlex} transition ease-in-out hover:text-red-600 hover:translate-x-0 hover:shadow-sm  hover:border-t-2 border-slate-50`}
+              className={`${styles.normalFlex} transition ease-in-out hover:text-red-600 hover:translate-x-0 hover:shadow-sm  hover:border-t-2 border-slate-50 `}
               key={index}
               onClick={() => submitHandle(i)}
             >

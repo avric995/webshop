@@ -9,6 +9,7 @@ import {
   AiOutlineStar,
 } from 'react-icons/ai'
 import { useState } from 'react'
+import ProductDetailsCard from '../ProductDetailsCard/ProductDetailsCard'
 
 const ProductCard = ({ data }) => {
   const [click, setClick] = useState(false)
@@ -21,7 +22,7 @@ const ProductCard = ({ data }) => {
 
   return (
     <>
-      <div className=" w-full h-[370px] rounded-lg relative bg-white p-3 shadow-sm hover:scale-105 transition-transform">
+      <div className=" w-full h-[370px] rounded-lg relative bg-white p-3 shadow-sm hover:scale-105  duration-300  ">
         <div className="flex justify-end"></div>
         <Link to={`/product/${product_name}`}>
           <img src={url} alt="" className="w-full h-[170px] object-contain" />
@@ -97,19 +98,21 @@ const ProductCard = ({ data }) => {
           <AiOutlineEye
             size={22}
             className="cursor-pointer absolute top-14 right-2"
-            onClick={() => setClick(!open)}
+            // onClick={() => setClick(!open)}
+            onClick={() => setOpen(!open)}
             color="#333"
             title="Quick view"
           />
           <AiOutlineShoppingCart
             size={25}
             className="cursor-pointer absolute top-24 right-2"
-            onClick={() => setClick(!open)}
+            onClick={() => setOpen(!open)}
             color="#444"
             title="Add to cart"
           />
         </div>
       </div>
+      {open ? <ProductDetailsCard data={data} setOpen={setOpen} /> : null}
     </>
   )
 }
