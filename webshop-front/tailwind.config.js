@@ -15,6 +15,15 @@ export default {
         '1300px': '1300px',
         '400px': '400px',
       },
+      keyframes: {
+        slideDown: {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translate(0)' },
+        },
+      },
+      animation: {
+        slideDown: 'slideDown 0.35s ease-out',
+      },
     },
   },
   plugins: [],

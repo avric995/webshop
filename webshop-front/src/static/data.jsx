@@ -190,6 +190,13 @@ export const brandingData = [
 // categories data
 export const categoriesData = [
   {
+    id: 0,
+    title: 'All Categories',
+    subTitle: '',
+    image_Url:
+      'https://cdn0.iconfinder.com/data/icons/category-of-words-and-phrases/128/All-512.png',
+  },
+  {
     id: 1,
     title: 'Computers and Laptops',
     subTitle: '',

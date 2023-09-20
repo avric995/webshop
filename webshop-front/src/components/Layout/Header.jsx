@@ -14,9 +14,11 @@ import { CgProfile } from 'react-icons/cg'
 import DropDown from './DropDown.jsx'
 import Navbar from './Navbar.jsx'
 import { useSelector } from 'react-redux'
+import { backend_url } from '../../server'
 
 const Header = ({ activeHeading }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user)
+
   const [searchTerm, setSearchTerm] = useState('')
   const [searchData, setSearchData] = useState(null)
   const [active, setActive] = useState(false)
@@ -36,7 +38,7 @@ const Header = ({ activeHeading }) => {
   }
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 89.5) {
+    if (window.scrollY > 70) {
       setActive(true)
     } else {
       setActive(false)
@@ -104,8 +106,10 @@ const Header = ({ activeHeading }) => {
       </div>
       <div
         className={`${
-          active === true ? 'shadow-sm fixed top-0 left-0 z-10' : null
-        } transition hidden 800px:flex items-center justify-between w-full bg-[#3321c8] h-[70px]`}
+          active === true
+            ? 'shadow-sm fixed top-0 left-0 z-10 animate-slideDown '
+            : null
+        }  hidden 800px:flex items-center justify-between w-full bg-[#3321c8] h-[70px]`}
       >
         <div
           className={`${styles.section} relative ${styles.normalFlex} justify-between`}
@@ -117,7 +121,7 @@ const Header = ({ activeHeading }) => {
               <button
                 className={`h-[100%] w-full flex justify-between items-center pl-10 bg-white font-sans text-lg font-[500] select-none rounded-t-md`}
               >
-                All categories
+                Categories
               </button>
               <IoIosArrowDown
                 size={20}
@@ -160,7 +164,11 @@ const Header = ({ activeHeading }) => {
               <div className="relative cursor-pointer mr-[15px]">
                 {isAuthenticated ? (
                   <Link to="/profile">
-                    <img src={user?.avatar} alt="" />
+                    <img
+                      className="w-9 h-9 rounded-full "
+                      src={`${backend_url}/${user.user.avatar}`}
+                      alt=""
+                    />
                   </Link>
                 ) : (
                   <Link to="/login">
